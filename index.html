@@ -3,331 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZEROW STORE - SA-MP Development & Services</title>
-    <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="ZEROW STORE menyediakan jasa pengembangan SA-MP, Discord, bot, mapping, dan hosting.">
+    <title>ZEROW STORE - SA-MP Development &amp; Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-color: #0d0f12;
-            --card-bg: #161b22;
-            --accent-color: #8b0000;
-            --accent-hover: #b22222;
-            --text-color: #f0f6fc;
-            --text-secondary: #8b949e;
-            --border-color: #30363d;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* Header / Navbar */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(22, 27, 34, 0.8);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--accent-hover);
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-hover);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at center, #2a080c 0%, var(--bg-color) 70%);
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-
-        .btn-discord {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #5865F2;
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn-discord:hover {
-            background-color: #4752C4;
-            transform: translateY(-2px);
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background: var(--accent-hover);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-hover);
-        }
-
-        .service-card i {
-            font-size: 2.5rem;
-            color: var(--accent-hover);
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .service-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Pricing Section */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .pricing-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 35px 25px;
-            text-align: center;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--accent-hover);
-            box-shadow: 0 0 15px rgba(178, 34, 34, 0.2);
-        }
-
-        .badge {
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background: var(--accent-hover);
-            color: #fff;
-            padding: 4px 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border-radius: 20px;
-        }
-
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 15px 0;
-            color: #fff;
-        }
-
-        .price del {
-            font-size: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .features-list {
-            list-style: none;
-            text-align: left;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .features-list li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .features-list i {
-            color: #2ea44f;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            header { padding: 15px 5%; }
-            section { padding: 60px 5%; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Header / Navbar -->
-    <header>
-        <div class="logo">ZEROW <span>STORE</span></div>
-        <nav>
-            <a href="#services">Layanan</a>
-            <a href="#pricing">Paket Harga</a>
-            <a href="https://discord.gg/tj6XQ7X7kJ" target="_blank">Discord</a>
+    <header class="site-header">
+        <a class="logo" href="index.html">ZEROW <span>STORE</span></a>
+        <button class="menu-toggle" type="button" aria-label="Buka menu navigasi" aria-controls="main-navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="site-nav" id="main-navigation" aria-label="Navigasi utama">
+            <div class="site-nav-inner">
+                <a href="#services">Layanan</a>
+                <a href="jasa.html">Daftar Jasa</a>
+                <a href="#pricing">Paket Dev</a>
+                <a href="https://discord.gg/tj6XQ7X7kJ" target="_blank" rel="noopener noreferrer">Discord</a>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Layanan SA-MP Developer Terbaik</h1>
-        <p>Solusi lengkap pengembangan server SA-MP: Pawn Scripting, Fix Bug, Optimasi MySQL, Custom Textdraw, dan Kelola Teknis Server.</p>
-        <a href="https://discord.gg/tj6XQ7X7kJ" target="_blank" class="btn-discord">
-            <i class="fa-brands fa-discord"></i> Join Server Discord
-        </a>
-    </div>
+    <main>
+        <section class="hero">
+            <h1>Layanan SA-MP/DISCORD/DLL Terbaik & Termurah</h1>
+            <p>Solusi lengkap pengembangan server SA-MP: Pawn Scripting, perbaikan bug, optimasi database, desain Textdraw, dan kebutuhan teknis server. serta pengembangan bot Discord dan pembuatan discord bot dan masih banyak jasa lain nya.</p>
+            <a href="https://discord.gg/tj6XQ7X7kJ" target="_blank" rel="noopener noreferrer" class="btn-discord">
+                <i class="fa-brands fa-discord" aria-hidden="true"></i> Join Server Discord
+            </a>
+        </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h2 class="section-title">Layanan Kami</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fa-solid fa-code"></i>
-                <h3>Pawn Scripting</h3>
-                <p>Pembuatan fitur custom, update gamemode, dan integrasi fitur baru sesuai request.</p>
+        <section id="services">
+            <h2 class="section-title">Layanan Kami</h2>
+            <div class="services-grid">
+                <article class="service-card">
+                    <i class="fa-solid fa-code" aria-hidden="true"></i>
+                    <h3>Pawn Scripting</h3>
+                    <p>Pembuatan fitur custom, update gamemode, dan integrasi fitur baru sesuai request.</p>
+                </article>
+                <article class="service-card">
+                    <i class="fa-solid fa-bug-slash" aria-hidden="true"></i>
+                    <h3>Fix Bug &amp; Error</h3>
+                    <p>Penanganan error script (.pwn), warning, server crash, dan perbaikan fitur bermasalah.</p>
+                </article>
+                <article class="service-card">
+                    <i class="fa-solid fa-database" aria-hidden="true"></i>
+                    <h3>Optimasi MySQL</h3>
+                    <p>Pembersihan data, optimasi query, dan perapihan database agar server berjalan lebih baik.</p>
+                </article>
+                <article class="service-card">
+                    <i class="fa-solid fa-palette" aria-hidden="true"></i>
+                    <h3>Textdraw &amp; UI Design</h3>
+                    <p>Desain UI/Textdraw kustom untuk kebutuhan server.</p>
+                </article>
             </div>
-            <div class="service-card">
-                <i class="fa-solid fa-bug-slash"></i>
-                <h3>Fix Bug & Error</h3>
-                <p>Penanganan error script (.pwn), warning, server crash, dan perbaikan fitur bermasalah.</p>
+            <div class="section-action">
+                <a href="jasa.html" class="btn-secondary">Lihat Semua Jasa &amp; Harga</a>
             </div>
-            <div class="service-card">
-                <i class="fa-solid fa-database"></i>
-                <h3>Optimasi MySQL</h3>
-                <p>Pembersihan data junk, optimasi query, dan perapihan database agar server anti-lag.</p>
-            </div>
-            <div class="service-card">
-                <i class="fa-solid fa-palette"></i>
-                <h3>Textdraw & UI Design</h3>
-                <p>Desain UI/Textdraw kustom yang bersih, modern, dan responsif untuk kebutuhan server.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing">
-        <h2 class="section-title">Paket Jasa Dev</h2>
-        <div class="pricing-grid">
-            <!-- Paket Mingguan -->
-            <div class="pricing-card">
-                <h3>Paket Perminggu</h3>
-                <div class="price">Rp 40.000</div>
-                <ul class="features-list">
-                    <li><i class="fa-solid fa-check"></i> 1 Batch = 4 Request</li>
-                    <li><i class="fa-solid fa-check"></i> Fix Bug & Error Script</li>
-                    <li><i class="fa-solid fa-check"></i> Edit / Add Fitur Ringan</li>
-                    <li><i class="fa-solid fa-check"></i> Setup Plugin & Filterscript</li>
-                    <li><i class="fa-solid fa-check"></i> Perbaikan Database Basic</li>
-                </ul>
-                <a href="https://discord.gg/tj6XQ7X7kJ" target="_blank" class="btn-discord">Pesan Sekarang</a>
+        <section id="pricing" class="pricing-section">
+            <h2 class="section-title">Paket Jasa Dev</h2>
+            <div class="pricing-grid">
+                <article class="pricing-card">
+                    <h3>Paket Perminggu</h3>
+                    <div class="price">Rp 40.000</div>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> 1 batch = 4 request</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Fix bug &amp; error script</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Edit / tambah fitur ringan</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Setup plugin &amp; filterscript</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Perbaikan database basic</li>
+                    </ul>
+                    <a href="https://discord.gg/tj6XQ7X7kJ" target="_blank" rel="noopener noreferrer" class="btn-discord">Pesan via Discord</a>
+                </article>
+                <article class="pricing-card featured">
+                    <span class="badge">BEST SELLER</span>
+                    <h3>Paket Perbulan</h3>
+                    <div class="price">Rp 145.000 <del>Rp 155.000</del></div>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> 1 batch = 11 request, dikerjakan bertahap</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Semua benefit paket mingguan</li>
+                        <li><i class="fa-solid fa-check" aria-hidden="true"></i> Prioritas pengerjaan</li>
+                    </ul>
+                    <a href="https://discord.gg/tj6XQ7X7kJ" target="_blank" rel="noopener noreferrer" class="btn-discord">Pesan via Discord</a>
+                </article>
             </div>
+        </section>
+    </main>
 
-            <!-- Paket Bulanan -->
-            <div class="pricing-card featured">
-                <span class="badge">BEST VALUE</span>
-                <h3>Paket Perbulan</h3>
-                <div class="price">Rp 145.000 <del>Rp 155k</del></div>
-                <ul class="features-list">
-                    <li><i class="fa-solid fa-check"></i> 1 Batch = 11 Request (Dikerjakan bertahap)</li>
-                    <li><i class="fa-solid fa-check"></i> Semua Benefit Paket Mingguan</li>
-                    <li><i class="fa-
+    <footer>
+        <p>&copy; 2026 ZEROW STORE. Semua hak dilindungi.</p>
+    </footer>
+    <script src="navigation.js" defer></script>
+</body>
+</html>
